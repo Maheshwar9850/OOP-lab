@@ -1,0 +1,183 @@
+import java.util.Scanner;
+
+class Employee{
+
+String emp_name;
+
+int emp_id;
+
+String emp_address;
+
+String emp_mail;
+
+long emp_phno;
+
+void accept_emp_info() {
+
+Scanner sc=new Scanner(System.in);
+
+System.out.println(&quot;Enter employee name:&quot;);
+
+emp_name=sc.nextLine();
+
+System.out.println(&quot;Enter employee ID:&quot;);
+
+emp_id=sc.nextInt();
+
+System.out.println(&quot;Enter employee address:&quot;);
+
+emp_address=sc.next();
+
+System.out.println(&quot;Enter employee ph.no:&quot;);
+
+emp_phno=sc.nextLong();
+
+System.out.println(&quot;Enter employee mail:&quot;);
+
+emp_mail=sc.next();
+
+}
+
+void display_emp_info() {
+
+System.out.println(&quot;Employee name:&quot;+&quot;&quot;+emp_name);
+
+System.out.println(&quot;Employee ID:&quot;+&quot;&quot;+emp_id);
+
+System.out.println(&quot;Employee ph.no:&quot;+&quot;&quot;+emp_phno);
+
+System.out.println(&quot;Employee address:&quot;+&quot;&quot;+emp_address);
+
+System.out.println(&quot;Employee mail:&quot;+&quot;&quot;+emp_mail);
+
+}
+
+void pay_slip() {
+
+float basic_pay;
+
+Scanner sc=new Scanner(System.in);
+
+System.out.println(&quot;Enter basic pay:&quot;);
+
+basic_pay=sc.nextFloat();
+
+float da=0.97f*basic_pay;
+
+float hra=0.1f*basic_pay;
+
+float pf=0.12f*basic_pay;
+
+float scfund=0.001f*basic_pay;
+
+float gross_pay=basic_pay+da+hra;
+
+float net_pay=gross_pay-pf-scfund;
+
+System.out.println(&quot;The gross salary is:&quot;+gross_pay);
+
+System.out.println(&quot;The net salary is&quot;+net_pay);
+
+}
+
+}
+
+class programer extends Employee{}
+
+class teamlead extends Employee{}
+
+class ass_project_manager extends Employee{}
+
+class project_manager extends Employee{}
+
+public class Main {
+
+public static void main(String[] args) {
+
+int g;
+
+Scanner sc=new Scanner(System.in);
+
+System.out.println(&quot;Enter the Employee of choice:&quot;);
+
+System.out.println(&quot;1.Programmer&quot;);
+
+System.out.println(&quot;2.Team Lead&quot;);
+
+System.out.println(&quot;3.Assitant Project Manager&quot;);
+
+System.out.println(&quot;4.Project Manager&quot;);
+
+g=sc.nextInt();
+
+switch (g)
+
+{
+
+case 1:
+
+programer p=new programer();
+
+p.accept_emp_info();
+
+System.out.println(&quot;---Displaying Details of Programmer---&quot;);
+
+p.display_emp_info();
+
+p.pay_slip();
+
+break;
+
+case 2:
+
+teamlead t=new teamlead();
+
+t.accept_emp_info();
+
+System.out.println(&quot;---Displaying Details of Team Lead---&quot;);
+
+t.display_emp_info();
+
+t.pay_slip();
+
+break;
+
+case 3:
+
+ass_project_manager a=new ass_project_manager();
+
+a.accept_emp_info();
+
+System.out.println(&quot;---Displaying Details of Assistant Project Manager---&quot;);
+
+a.display_emp_info();
+
+a.pay_slip();
+
+break;
+
+case 4:
+
+project_manager m=new project_manager();
+
+m.accept_emp_info();
+
+System.out.println(&quot;---Displaying Details of Project Manager---&quot;);
+
+m.display_emp_info();
+
+m.pay_slip();
+
+break;
+
+default:
+
+System.out.println(&quot;Invalid&quot;);
+
+break;
+
+}
+
+}
+
+}
